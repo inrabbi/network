@@ -46,7 +46,7 @@ li {
   border-radius: 5px;
   box-shadow: 0 0 50px hsla(0, 0%, 1%, 0.938);
   margin-top: 20px;
-  margin-left: 450px;
+  margin-left: 560px;
 }
 .form h1 {
   display: flex;
@@ -147,7 +147,7 @@ label {
   border-radius: 10px;
   box-shadow: 0 0 50px hsla(0, 0%, 1%, 0.938);
   margin-top: 20px;
-  margin-left: 450px;
+  margin-left: 560px;
 }
 .footer_title p {
   margin: 20px 25px;
