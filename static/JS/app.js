@@ -1,3 +1,5 @@
+// static/JS/app.js
+
 document.getElementById('continue-btn').addEventListener('click', function(event) {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
